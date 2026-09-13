@@ -407,7 +407,7 @@ footer{margin-top:26px; text-align:center; padding:18px; color:var(--muted); fon
         </div>
       </section>
 
-      <!-- REASONS - shorter, human, not cringe 101 -> 24 real -->
+      <!-- REASONS - 101 human real, no repeat -->
       <section class="scene" id="scene-reasons" data-index="5">
         <div class="reasons-layout">
           <div class="reasons-sticky">
@@ -424,7 +424,7 @@ footer{margin-top:26px; text-align:center; padding:18px; color:var(--muted); fon
               <div class="overline reveal d1">أشياء أحبها فيكِ</div>
               <h2 class="reveal d2">ليه أحبك؟</h2>
               <p class="desc reveal d3">مو كلها، بس كم سبب يجي على بالي.</p>
-              <div class="info-bar reveal d4"><span>وصلتِ إلى</span><b id="reachedNum">01</b><span>من 24</span></div>
+              <div class="info-bar reveal d4"><span>وصلتِ إلى</span><b id="reachedNum">001</b><span>من 101</span></div>
             </div>
             <div class="reasons-grid" id="reasonsGrid"></div>
             <div class="final-card reveal">
@@ -517,9 +517,42 @@ function playTone({freq=660,type='sine',dur=0.22,vol=0.18,slide=0}){
 function playClickSound(k){ if(k==='gift') playTone({freq:880,type:'triangle',dur:0.36,vol:0.24,slide:140}); else if(k==='heart') playTone({freq:790,type:'sine',dur:0.3,vol:0.22,slide:75}); else playTone({freq:650,type:'sine',dur:0.2,vol:0.17}); }
 
 const bgSong=$('#bgSong'), musicBtn=$('#musicBtn');
-let musicPlaying=false, musicTried=false;
-async function tryPlayMusic(){ if(musicPlaying) return; try{ bgSong.volume=0.46; await bgSong.play(); musicPlaying=true; musicBtn.textContent='♫'; }catch(e){ musicPlaying=false; musicBtn.textContent='♪'; } }
-function toggleMusic(){ ensureAudio(); if(musicPlaying){ bgSong.pause(); musicPlaying=false; musicBtn.textContent='♪'; } else tryPlayMusic(); }
+let musicPlaying=false, musicTried=false, cuteInterval=null;
+const cuteNotes=[523.25,587.33,659.25,783.99,880,1046.5,987.77]; // C5 D5 E5 G5 A5 C6 B5
+function startCuteOverlay(){
+  if(cuteInterval) clearInterval(cuteInterval);
+  let idx=0;
+  cuteInterval=setInterval(()=>{
+    if(!musicPlaying) return;
+    if(Math.random()<0.7){
+      const f=cuteNotes[idx%cuteNotes.length];
+      // soft glock
+      try{
+        ensureAudio();
+        const o=audioCtx.createOscillator(), g=audioCtx.createGain(), filt=audioCtx.createBiquadFilter();
+        o.type='sine'; o.frequency.value=f;
+        filt.type='lowpass'; filt.frequency.value=2800;
+        g.gain.setValueAtTime(0, audioCtx.currentTime);
+        g.gain.linearRampToValueAtTime(0.09, audioCtx.currentTime+0.02);
+        g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime+1.1);
+        o.connect(filt); filt.connect(g); g.connect(audioCtx.destination);
+        // second harmonic for sparkle
+        const o2=audioCtx.createOscillator(), g2=audioCtx.createGain();
+        o2.type='sine'; o2.frequency.value=f*2.01;
+        g2.gain.setValueAtTime(0, audioCtx.currentTime);
+        g2.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime+0.02);
+        g2.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime+0.9);
+        o2.connect(g2); g2.connect(audioCtx.destination);
+        o.start(); o.stop(audioCtx.currentTime+1.2);
+        o2.start(); o2.stop(audioCtx.currentTime+1.0);
+      }catch(_){}
+      idx=(idx+1+Math.floor(Math.random()*2))%cuteNotes.length;
+    }
+  }, 1450);
+}
+function stopCuteOverlay(){ if(cuteInterval){ clearInterval(cuteInterval); cuteInterval=null; } }
+async function tryPlayMusic(){ if(musicPlaying) return; try{ bgSong.volume=0.46; await bgSong.play(); musicPlaying=true; musicBtn.textContent='♫'; startCuteOverlay(); }catch(e){ musicPlaying=false; musicBtn.textContent='♪'; } }
+function toggleMusic(){ ensureAudio(); if(musicPlaying){ bgSong.pause(); musicPlaying=false; musicBtn.textContent='♪'; stopCuteOverlay(); } else tryPlayMusic(); }
 musicBtn.addEventListener('click', e=>{ e.stopPropagation(); toggleMusic(); });
 window.addEventListener('load', ()=>tryPlayMusic());
 ['pointerdown','keydown'].forEach(ev=>{ window.addEventListener(ev, ()=>{ if(!musicTried){ musicTried=true; tryPlayMusic(); } }, {once:true, passive:true}); });
@@ -619,32 +652,109 @@ $('#celebrateBtn')?.addEventListener('click', ()=>{ roseRain(90); playTone({freq
 
 (function(){ if(matchMedia('(pointer:fine)').matches){ $$('.gift-card').forEach(card=>{ card.addEventListener('pointermove', e=>{ const r=card.getBoundingClientRect(); const cx=r.left+r.width/2, cy=r.top+r.height/2; const dx=(e.clientX-cx)/r.width, dy=(e.clientY-cy)/r.height; card.style.transform=`perspective(800px) rotateY(${dx*9}deg) rotateX(${-dy*9}deg) translateY(-4px)`; }); card.addEventListener('pointerleave', ()=>{ card.style.transform='perspective(800px) rotateY(0) rotateX(0) translateY(0)'; }); }); } })();
 
-// REASONS - shorter human 24 reasons
+// REASONS - 101 human real reasons, no cringe repeat
 const reasonsTexts=[
-"تحبي تضحكيني حتى وأنا معصب.",
-"تتذكري تفاصيل صغيرة أنا أنساها.",
-"قلبك أبيض وما تحقدي.",
-"تسمعيني حتى لو ساكت.",
-"تخافي علي من أبسط شي.",
-"تخليني أبغى أصير أحسن.",
-"معك أحس إني في بيتي.",
-"ضحكتك تعدل يومي.",
-"صوتك يطمني.",
-"ما تتركيني أزعل لحالي.",
-"تدعميني حتى لو ما أستاهل.",
-"تحبي عيالنا من الحين.",
-"ذكية بس تسوي نفسك صغيرة.",
-"حنونة حتى وقت الزعل.",
-"تسامحي بسرعة.",
-"تحبي الورد وأحبك أكثر.",
-"كل صورك حلوة لأنك فيها.",
-"تخليني أضحك على أتفه نكتة.",
-"تخافي على أهلي كأنهم أهلك.",
-"ما تقارنيني بأحد.",
-"تعطي بدون ما تنتظري مقابل.",
-"أول وحدة أجي أحكي لها أي شي حلو.",
-"معك المستقبل يطمن.",
-"لأنك أنتِ، وهذا يكفي."
+"تضحكيني حتى كي نكون مقلق",
+"تتفكري تفاصيل صغيرة أنا ننساهم",
+"قلبك بيض وما تعرفي تحقدي",
+"كي نسكت تفهمني بلا ما نهدر",
+"تخافي عليا من أبرد ريح",
+"تخليني نحب نكون إنسان خير",
+"معك نحس روحي في داري",
+"ضحكتك تنسيّني تعب النهار كامل",
+"صوتك كي تقوليلي عبود يطمني",
+"ما تخلينيش نرقد وانا مقلق منك",
+"تشجعيني حتى كي أنا ما نستاهلش",
+"تحبي دراري من ضرك",
+"ذكية بزاف بصح تديري روحك صغيرة باش نضحك",
+"حنينة حتى كي تكوني زعفانة",
+"تسامحي بالخف وما تخليش الزعل يطول",
+"تموتي على الورد وأنا نموت عليك كثر",
+"أي فوطو ليك تجي شابة لأنك فيها",
+"تضحكيني على نكتة بايخة تاعي",
+"تخافي على ماما كيما تخافي على ماماك",
+"جامي قارنتيني بواحد آخر",
+"تعطي بلا ما تستناي مقابل",
+"أول وحدة نحب نحكيلها كي تصرالي حاجة مليحة",
+"معك المستقبل ما يخوفش",
+"لأنك انتِ، وهادي تكفي",
+"كي تزعفي خدودك يحمارو ونحبك كثر",
+"شعرك كي يكون منكوش يعجبني كثر",
+"تعرفي تديري قهوة بنينة كيما انتِ",
+"كي تبكي نحب نضمك وما نطلقكش",
+"تغيري عليا وهادي تبينلي بلي تحبيني",
+"تحبي هيلو كيتي وأنا وليت نحبها على جالك",
+"كي تقوليلي نحبك بصوت ناعس",
+"تصبري عليا كي نكون ثقيل",
+"تعرفي تضحكيني بلا سبب",
+"عينيك كي تشوفيني كأنك تقوليلي توحشتك",
+"تحبي المفاجآت الصغيرة",
+"كي نكون مريض تولي طبيبتي",
+"تكتبيلي مساجات طوال كي نكون بعيد",
+"ما تخليش المسافة تبردنا",
+"تحفظي تاريخنا كامل",
+"تحبي تسمعي هدرتي حتى كي نعاود نفس الحكاية",
+"كي نضحك تضحكي معايا بلا ما تعرفي علاه",
+"تلبسي أي حاجة وتجي عليك تهبل",
+"ريحتك تبقى في حوايجي ونحبها",
+"كي تقوليلي ديّر بالك على روحك",
+"تعرفي وقتاش تسكتي ووقتاش تهدري",
+"تشوفي فيا حاجات مليحة أنا ما نشوفهاش",
+"تحبي تتصوري معايا حتى كي نكون مش مرتب",
+"كي تزعفي مني وبعد دقيقة تقوليلي توحشتك",
+"تحبي تديريلي مفاجآت صغيرة في الساك",
+"صبرك معايا ماشي عادي",
+"كي نكون معصب تعرفي كيفاش تهديني",
+"تحبي أولادنا قبل ما يجيو",
+"تضحكي كي نغني بصوت خايب",
+"تعرفي تفرحي بحاجة صغيرة نجيبها لك",
+"كي تقوليلي أنا معك نحس الدنيا ساهلة",
+"ما تحشميش تقوليلي نحبك قدام الناس",
+"تعرفي تطيبي ولو حاجة بسيطة بنينة",
+"كي تكوني فرحانة عينيك يلمعو",
+"تسمعي غنايانا وتعاوديها",
+"تحبي تحكيلي على نهارك كامل",
+"كي نغيب تحسبي الدقايق",
+"تعرفي تضمي مليح",
+"كي تقوليلي يا عمري قلبي يذوب",
+"تحبي تمشي معايا حتى بلا بلاصة",
+"تعرفي تضحكي على روحك",
+"كي نكون تعبان تقوليلي ارتاح أنا هنا",
+"تحبي الوردي على جالي ولا أنا غالط؟",
+"كي تشوفيني نضحك تفرحي كثر مني",
+"ما تنسايش تدعيلي",
+"تعرفي تخلي الدار دافية غير بوجودك",
+"كي تقوليلي غدوة خير نصدقك",
+"تحبي تسقسي عليا حتى كي نكون لاتي",
+"كي نغلط تعلميني بلا ما تجرحيني",
+"ضحكتك في الفيديو نعاودها 100 مرة",
+"تحبي الحلوى وأنا نحب حلوتي انتِ",
+"كي تكوني معايا الوقت يجري",
+"تعرفي تخليني نحس روحي راجل معك",
+"كي تقوليلي توحشتك نحسها صح من قلبك",
+"تحبي تخليلي نوت صغيرة في كتابي",
+"عينيك كي تغمضيهم وانتِ تضحكي",
+"كي نكون بعيد تحسي بيا",
+"تحبي تسمعي صوتي قبل ما ترقدي",
+"كي تقوليلي صباح الخير نهاري يبدا مليح",
+"تعرفي تفرحي كي نفرح أنا",
+"كي نزعف تخليني نضحك بالسيف",
+"تحبي تعانقيني بزاف",
+"كي تقوليلي خليك معايا نحس روحي مهم",
+"تعرفي تديري الجو شاب وين ما كنتي",
+"كي تشوفي قطة تقوليلي تشبهك",
+"تحبي تحكيلي أسرارك كامل",
+"كي نكون خايف تقوليلي أنا هنا ما تخافش",
+"تعرفي تضحكي حتى وانتِ تبكي",
+"كي تقوليلي نحبك بالجزائرية تجي بنينة كثر",
+"تحبي تلبسي خاتمي حتى وهو كبير عليك",
+"كي نكون معاك ما نحتاجش نهدر بزاف",
+"تعرفي تخليني نتوحشك وانا معك",
+"كي تقوليلي ربي يخليك ليا",
+"تحبي المستقبل معايا بلا خوف",
+"كي نشوفك ننسى علاه كنت مقلق",
+"لأنك سرور، وسرور هو فرحتي",
+"ولأن الحب معك ساهل، وما نحتاجش نسبب"
 ];
 function renderReasons(){
   const grid=$('#reasonsGrid'); grid.innerHTML='';
