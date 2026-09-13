@@ -551,7 +551,7 @@ footer{margin-top:28px; text-align:center; padding:20px; color:var(--muted); fon
           <div class="reasons-sticky">
             <div class="polaroid" id="polaroid">
               <div class="tape"></div>
-              <div class="photo"><img id="polaroidImg" src="assets/mhia71.jpg" alt="ذكرى"></div>
+              <div class="photo"><img id="polaroidImg" src="https://files.catbox.moe/mhia71.jpg" alt="ذكرى"></div>
               <div class="cap">كل الصور حلوة لأنكِ فيها.</div>
               <div class="dots" id="polaroidDots"><i class="active"></i><i></i><i></i></div>
               <img class="kitty-memory" src="assets/kitty-memory.png" alt="" aria-hidden="true">
@@ -1144,7 +1144,11 @@ function initReasonsEntrance(){
   reasonsObserver=io;
 }
 let polaroidTimer; let polaroidIdx=0;
-const polaroidImages=['assets/mhia71.jpg','assets/w585vg.jpg','assets/4080bk.jpg'];
+const polaroidImages=[
+  'https://files.catbox.moe/mhia71.jpg',
+  'https://files.catbox.moe/w585vg.jpg',
+  'https://files.catbox.moe/4080bk.jpg'
+];
 function startPolaroid(){
   const img = $('#polaroidImg');
   const dots = $$('#polaroidDots i');
