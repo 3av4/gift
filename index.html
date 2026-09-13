@@ -220,11 +220,11 @@ button{font-family:"Tajawal","Cairo",sans-serif; touch-action: manipulation; use
 .welcome-center .desc{font-family:"Tajawal",sans-serif; font-weight:400; color:var(--muted); font-size:15px; line-height:1.9; max-width:425px; margin:0 auto; letter-spacing:.1px}
 .welcome-art-center{position:relative; width:min(360px, 82vw); margin-top:8px; transition: transform .42s var(--ease-smooth); will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
 .welcome-art-center:hover{transform:translateZ(0) scale(1.02)}
-.welcome-art-center .arch-frame{width:100%; aspect-ratio:0.72; border-radius:190px 190px 36px 36px; overflow:hidden; background: linear-gradient(180deg, #fffdfb, #fbe5ea); border:1.6px solid var(--line); box-shadow: var(--shadow-strong); padding:12px; margin:0 auto; transition: box-shadow .36s var(--ease-smooth); transform:translateZ(0)}
+.welcome-art-center .arch-frame{width:100%; aspect-ratio:0.56; border-radius:190px 190px 36px 36px; overflow:hidden; background: linear-gradient(180deg, #fffdfb, #fbe5ea); border:1.6px solid var(--line); box-shadow: var(--shadow-strong); padding:12px; margin:0 auto; transition: box-shadow .36s var(--ease-smooth); transform:translateZ(0)}
 .welcome-art-center:hover .arch-frame{box-shadow: 0 28px 80px rgba(94,56,72,.18), 0 12px 32px rgba(217,95,136,.18)}
-.welcome-art-center .arch-frame .inner{width:100%; height:100%; border-radius:180px 180px 28px 28px; overflow:hidden; background:#fff}
-.welcome-art-center .arch-frame img{width:100%; height:100%; object-fit:cover; transition: transform .6s var(--ease-smooth); will-change:transform}
-.welcome-art-center:hover .arch-frame img{transform:scale(1.04)}
+.welcome-art-center .arch-frame .inner{width:100%; height:100%; border-radius:180px 180px 28px 28px; overflow:hidden; background:#fff; display:grid; place-items:center; padding:0}
+.welcome-art-center .arch-frame img{width:100%; height:100%; object-fit:cover; object-position:center; transition: transform .6s var(--ease-smooth); will-change:transform; transform:translateZ(0)}
+.welcome-art-center:hover .arch-frame img{transform:translateZ(0) scale(1.04)}
 .float-kitty-center{position:absolute; width:68px; height:68px; left:-8px; top:-14px; object-fit:contain; filter:drop-shadow(0 10px 16px rgba(94,56,72,.18)); animation: floaty 4s ease-in-out infinite; will-change:transform; backface-visibility:hidden; transform:translateZ(0); z-index:2}
 @keyframes floaty{0%,100%{transform:translate3d(0,0,0) rotate(-3deg)} 50%{transform:translate3d(0,-10px,0) rotate(3deg)}}
 .grain-overlay{position:fixed; inset:0; pointer-events:none; z-index:6; opacity:.032; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); mix-blend-mode:multiply; transform:translateZ(0)}
@@ -254,7 +254,7 @@ button{font-family:"Tajawal","Cairo",sans-serif; touch-action: manipulation; use
 .q-card .big-hearts{position:absolute; inset:0; pointer-events:none; opacity:.14}
 .q-card .big-hearts span{position:absolute; font-size:140px; color:var(--pink)}
 .q-card .big-hearts .h1{left:-18px; top:-12px; transform:rotate(-12deg)} .h2{right:-16px; bottom:-20px; font-size:170px; transform:rotate(12deg)}
-.q-kitty{width:82px; height:82px; margin-bottom:10px; animation: floaty 3.6s ease-in-out infinite; will-change:transform; transform:translateZ(0)}
+.q-kitty{width:82px; height:82px; object-fit:contain; object-position:center; margin-bottom:10px; animation: floaty 3.6s ease-in-out infinite; will-change:transform; transform:translateZ(0)}
 .q-actions{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:16px}
 .q-actions .btn{min-width:150px}
 @media(max-width:760px){
@@ -307,9 +307,17 @@ button{font-family:"Tajawal","Cairo",sans-serif; touch-action: manipulation; use
 .gift-card .img-wrap{
   border-radius:22px; 
   background: radial-gradient(120% 120% at 30% 20%, #fff 0%, #fffdfb 45%, #fbe5ea 85%);
-  aspect-ratio:1.1; display:grid; place-items:center; 
+  aspect-ratio:1.83; display:grid; place-items:center; 
   border:1px solid rgba(237,189,202,.7); position:relative; overflow:hidden; 
-  transform:translateZ(0); z-index:0; padding:10px;
+  transform:translateZ(0); z-index:0; padding:0;
+}
+.gift-card .img-wrap img{
+  width:100%; height:100%; object-fit:cover; object-position:center;
+  filter:drop-shadow(0 12px 22px rgba(94,56,72,.14)); 
+  transition: transform .65s var(--ease-smooth), filter .5s var(--ease-smooth); 
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0);
+  animation: giftFloat 4.2s var(--ease-smooth) infinite;
+  z-index:0;
 }
 .gift-card .img-wrap::before{
   content:""; position:absolute; inset:0;
@@ -419,8 +427,19 @@ button{font-family:"Tajawal","Cairo",sans-serif; touch-action: manipulation; use
 .polaroid{background: rgba(255,253,251,.94); border:1px solid var(--line); border-radius:24px; padding:14px 14px 18px; box-shadow: var(--shadow-strong); transform:rotate(-1deg) translateZ(0); position:relative; transition: transform .36s var(--ease-smooth), box-shadow .36s var(--ease-smooth); will-change:transform; backface-visibility:hidden}
 .polaroid:hover{transform:rotate(0deg) scale(1.02) translateZ(0); box-shadow: 0 28px 80px rgba(94,56,72,.18)}
 .polaroid .tape{position:absolute; top:-10px; left:50%; transform:translateX(-50%) rotate(-2deg) translateZ(0); width:84px; height:20px; background: linear-gradient(180deg, #f8b5c8, #f29ab4); border-radius:6px; box-shadow: 0 4px 10px rgba(217,95,136,.25)}
-.polaroid .photo{border-radius:14px; overflow:hidden; aspect-ratio:0.92; background:#fff; transform:translateZ(0)}
-.polaroid .photo img{width:100%; height:100%; object-fit:cover; transition: opacity .7s var(--ease-smooth), transform .7s var(--ease-smooth); will-change:transform,opacity; backface-visibility:hidden}
+.polaroid .photo{
+  border-radius:14px; overflow:hidden; 
+  aspect-ratio:0.5625; background:#fff; 
+  transform:translateZ(0); position:relative;
+  width:100%; 
+}
+.polaroid .photo img{
+  width:100%; height:100%; 
+  object-fit:cover; object-position:center top; 
+  transition: opacity .7s var(--ease-smooth), transform .7s var(--ease-smooth); 
+  will-change:transform,opacity; backface-visibility:hidden; display:block;
+  transform:translateZ(0) scale(1);
+}
 .polaroid .photo img.zoom{transform:translateZ(0) scale(1.05)}
 .polaroid .cap{font-family:"Tajawal"; margin-top:10px; text-align:center; font-weight:700; font-size:12px; color:var(--muted)}
 .polaroid .dots{display:flex; gap:6px; justify-content:center; margin-top:10px}
@@ -494,10 +513,10 @@ button{font-family:"Tajawal","Cairo",sans-serif; touch-action: manipulation; use
 
 .timeline-layout{display:grid; grid-template-columns:280px 1fr; gap:22px; margin-top:22px; align-items:start}
 .tl-bouquet{position:sticky; top:20px} 
-.tl-bouquet .arch-frame{width:min(280px,88vw); margin:0 auto; aspect-ratio:0.72; border-radius:190px 190px 36px 36px; overflow:hidden; background: linear-gradient(180deg, #fffdfb, #fbe5ea); border:1.5px solid var(--line); padding:10px; transition: transform .36s var(--ease-smooth), box-shadow .32s var(--ease-smooth); will-change:transform; transform:translateZ(0)}
+.tl-bouquet .arch-frame{width:min(280px,88vw); margin:0 auto; aspect-ratio:0.56; border-radius:190px 190px 36px 36px; overflow:hidden; background: linear-gradient(180deg, #fffdfb, #fbe5ea); border:1.5px solid var(--line); padding:10px; transition: transform .36s var(--ease-smooth), box-shadow .32s var(--ease-smooth); will-change:transform; transform:translateZ(0)}
 .tl-bouquet .arch-frame:hover{transform:translateZ(0) scale(1.02); box-shadow: var(--shadow-strong)}
-.tl-bouquet .arch-frame .inner{width:100%; height:100%; border-radius:180px 180px 28px 28px; overflow:hidden}
-.tl-bouquet .arch-frame img{width:100%; height:100%; object-fit:contain}
+.tl-bouquet .arch-frame .inner{width:100%; height:100%; border-radius:180px 180px 28px 28px; overflow:hidden; background:#fff; display:grid; place-items:center; padding:0}
+.tl-bouquet .arch-frame img{width:100%; height:100%; object-fit:cover; object-position:center; transform:translateZ(0)}
 .tl-content{position:relative; padding-right:20px}
 .tl-line{position:absolute; right:7px; top:0; bottom:0; width:2.5px; background: repeating-linear-gradient(180deg, var(--pink) 0 12px, transparent 12px 20px); opacity:.6; border-radius:999px}
 .tl-item{position:relative; margin-bottom:18px; padding-right:28px; opacity:0; transform:translateX(-18px) translateZ(0); transition: all .62s var(--ease-smooth); will-change:transform,opacity; backface-visibility:hidden}
@@ -716,7 +735,7 @@ footer{font-family:"Tajawal"; margin-top:26px; text-align:center; padding:18px; 
           <div class="reasons-sticky">
             <div class="polaroid" id="polaroid">
               <div class="tape"></div>
-              <div class="photo"><img id="polaroidImg" src="assets/mhia71.jpg" alt="" loading="lazy"></div>
+              <div class="photo"><img id="polaroidImg" src="https://files.catbox.moe/mhia71.jpg" alt="سرور" loading="eager" style="object-fit:cover; object-position:center top"></div>
               <div class="cap">أنتِ حلوة بكل حالاتك.</div>
               <div class="dots" id="polaroidDots"><i class="active"></i><i></i><i></i></div>
               <img class="kitty-memory" src="assets/kitty-memory.png" alt="">
@@ -1282,9 +1301,9 @@ function initReasonsEntrance(){
 }
 let polaroidTimer, polaroidIdx=0;
 const polaroidImages=[
-  'assets/mhia71.jpg',
-  'assets/w585vg.jpg',
-  'assets/4080bk.jpg'
+  'https://files.catbox.moe/mhia71.jpg',
+  'https://files.catbox.moe/w585vg.jpg',
+  'https://files.catbox.moe/4080bk.jpg'
 ];
 function openLightbox(src, cap){
   const lb=$('#imgLightbox'), lbImg=$('#lbImg'), lbCap=$('#lbCap');
