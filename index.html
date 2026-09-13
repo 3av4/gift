@@ -320,9 +320,9 @@ footer{margin-top:26px; text-align:center; padding:18px; color:var(--muted); fon
       <!-- WELCOME CENTERED FINAL -->
       <section class="scene active" id="scene-welcome" data-index="1">
         <div class="welcome-center">
-          <div class="overline reveal d1 tiny-word">هدية صغيرة لكِ</div>
+          <div class="overline reveal d1 tiny-word">هدية صغيرة كتبتها لكِ</div>
           <h1 class="reveal d2"><span>كل سنة وأنتِ</span><span>أول فرحتي، يا سرور</span></h1>
-          <p class="desc reveal d3">ما قدرت أكون معك اليوم، فجمعت لكِ كم شغلة أحبها فيكِ — كأنها رسالة من قلبي.</p>
+          <p class="desc reveal d3">ما قدرت أكون جنبك في يومك، فجمعت لكِ أشياء أحبها فيكِ وأشياء بيننا؛ كأنها رسالة طويلة توصل لكِ من قلبي.</p>
           <div class="reveal d4" style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:6px">
             <button class="btn btn-primary" data-go="question" data-sound="gift">افتحي هديتكِ ←</button>
             <button class="btn btn-ghost" id="roseRainBtn">مطر ورد ✦</button>
@@ -339,7 +339,7 @@ footer{margin-top:26px; text-align:center; padding:18px; color:var(--muted); fon
               <div class="counter-cell"><div class="num" id="cMins">0</div><div class="lbl">دقيقة</div></div>
               <div class="counter-cell"><div class="num" id="cSecs">0</div><div class="lbl">ثانية</div></div>
             </div>
-            <div style="margin-top:10px; text-align:center; font-size:11px; color:var(--muted)">يوم ميلادكِ 18 · 09 · 2007</div>
+            <div style="margin-top:10px; text-align:center; font-size:11px; color:var(--muted)">يوم ميلادكِ 18 · 09 · 2007 · <span style="color:var(--rose)">✦ صممتها لكِ وحدكِ</span></div>
           </div>
         </div>
       </section>
@@ -350,12 +350,12 @@ footer{margin-top:26px; text-align:center; padding:18px; color:var(--muted); fon
           <div class="card q-card">
             <div class="big-hearts"><span class="h1">♥</span><span class="h2">♥</span></div>
             <img class="q-kitty" src="assets/kitty-shy.png" alt="">
-            <div class="overline reveal d1">سؤال صغير</div>
-            <h2 class="reveal d2">تحبيني؟</h2>
-            <p class="desc reveal d3" style="font-size:14px">أعرف الجواب، بس أحب أسمعه منك.</p>
+            <div class="overline reveal d1">سؤال صغير قبل الهدية</div>
+            <h2 class="reveal d2">عندي سؤال أعرف إجابته…<br>بس انتِ تحبيني؟</h2>
+            <p class="desc reveal d3" style="font-size:14px">أعرف الإجابة… بس أحب أسمعها منكِ.</p>
             <div class="q-actions reveal d4">
-              <button class="btn btn-primary" data-go="gifts" data-sound="heart">أكيد</button>
-              <button class="btn btn-ghost" data-go="gifts" data-sound="heart">كثير</button>
+              <button class="btn btn-primary" data-go="gifts" data-sound="heart">أكيد أحبك</button>
+              <button class="btn btn-ghost" data-go="gifts" data-sound="heart">أحبكِ كثير</button>
             </div>
           </div>
         </div>
@@ -364,23 +364,24 @@ footer{margin-top:26px; text-align:center; padding:18px; color:var(--muted); fon
       <!-- GIFTS -->
       <section class="scene" id="scene-gifts" data-index="3">
         <div class="gifts-head">
-          <div class="overline reveal d1">بحب</div>
-          <h2 class="reveal d2">ثلاث أشياء لكِ</h2>
-          <p class="desc reveal d3" style="font-size:14px">كل وحدة لها معنى.</p>
+          <div class="overline reveal d1">فتحتها لكِ بحب</div>
+          <h2 class="reveal d2">ثلاث أشياء منّي لكِ</h2>
+          <p class="desc reveal d3" style="font-size:14px">مو هدايا كبيرة، بس كل وحدة فيها مكانكِ عندي.</p>
+          <div class="reveal d4" style="margin-top:10px; display:inline-flex; gap:6px; align-items:center; background:rgba(255,253,251,.7); border:1px dashed var(--line); border-radius:999px; padding:6px 12px; font-size:11px; color:var(--muted)">اختر وحدة وافتحها بحب <span style="color:var(--rose)">♥</span> <span style="opacity:.6">✦</span></div>
         </div>
         <div class="gifts-grid" id="giftsGrid">
           <img class="gift-float-kitty" src="assets/kitty-balloon.png" alt="">
           <div class="card gift-card reveal d2" data-go="letter" data-sound="gift">
-            <div class="img-wrap"><img src="assets/gift-letter.png" alt=""></div>
-            <div class="gift-text"><div class="meta">01 / رسالة</div><h3>كلمات لكِ</h3><p class="desc">كلام من القلب.</p></div>
+            <div class="img-wrap"><img src="assets/gift-letter.png" alt="رسالة"></div>
+            <div class="gift-text"><div class="meta">01 / رسالة خاصة</div><h3>كلمات لكِ</h3><p class="desc">كلام ما عرفت أقوله كله بصوتي.</p></div>
           </div>
           <div class="card gift-card reveal d3" data-go="reasons" data-sound="gift">
-            <div class="img-wrap"><img src="assets/gift-heart.png" alt=""></div>
-            <div class="gift-text"><div class="meta">02 / من القلب</div><h3>ليه أحبك</h3><p class="desc">أشياء صغيرة أحبها فيكِ.</p></div>
+            <div class="img-wrap"><img src="assets/gift-heart.png" alt="قلب"></div>
+            <div class="gift-text"><div class="meta">02 / من القلب</div><h3>ليه بحبك؟</h3><p class="desc">أشياء صغيرة تخلّيني أحبكِ كل يوم أكثر.</p></div>
           </div>
           <div class="card gift-card reveal d4" data-go="memories" data-sound="gift">
-            <div class="img-wrap"><img src="assets/gift-bouquet.png" alt=""></div>
-            <div class="gift-text"><div class="meta">03 / ذكرياتنا</div><h3>ورد وذكريات</h3><p class="desc">من البداية للي جاي.</p></div>
+            <div class="img-wrap"><img src="assets/gift-bouquet.png" alt="ورد"></div>
+            <div class="gift-text"><div class="meta">03 / حكايتنا</div><h3>ورد وذكريات</h3><p class="desc">من أول الطريق، إلى كل اللي جاي.</p></div>
           </div>
         </div>
       </section>
@@ -391,18 +392,13 @@ footer{margin-top:26px; text-align:center; padding:18px; color:var(--muted); fon
           <div class="card letter-card" id="letterCard">
             <div class="letter-stamp">بكل الحب</div>
             <img class="letter-kitty" src="assets/kitty-letter.png" alt="">
-            <div class="overline reveal d1">رسالة</div>
+            <div class="overline reveal d1">رسالة من القلب</div>
             <h2 class="letter-title reveal d2">إلى سرورتي</h2>
             <div class="gold-line reveal d2"></div>
-            <div class="letter-body reveal d3">عيد ميلاد سعيد يا سرورتي.
-يا أحلى إنسانة في حياتي. كل سنة وانتِ معي.
-أدري هديتي بسيطة، لو كنت جنبك كان جبت لك الدنيا كلها.
-سامحيني، المهم إنك لي وأنا لك.
-
-أحبك.
-</div>
-            <div class="letter-sign reveal d4">عبود</div>
-            <div style="margin-top:20px" class="reveal d5"><button class="btn btn-ghost" data-go="gifts">رجوع →</button></div>
+            <div class="letter-body reveal d3">عيد ميلاد سعيد حبوبتي سرورتي، المزّة وأحلى زوجة وأحلى إنسانة في حياتي، وأفضل وأجمل بنت في كل الكون. فديتك، وفديت جمالك، وفديت عيونك. وكل سنة وانتِ لي وملكي ومعي. أحبك وأحب وجودك في حياتي. وآسف على كل دمعة مني، أدري إنها هدية بسيطة بالنسبة لك، لو كنت معك كان شفتِ مني هدايا وكل الي يشتهيه قلبك. سامحيني إني مقصّر بهذا الشيء، بس بالنهاية بتكوني لي.</div>
+            <div class="letter-sign reveal d4">أحبك للأبد، عبود.</div>
+            <div class="reveal d4" style="margin-top:10px; font-size:12px; color:var(--muted); display:flex; gap:6px; align-items:center"><span>كتبتها وانتِ ببالي</span><span style="color:var(--pink)">♡</span><span style="opacity:.6">✦ كيك وركان وإيلا معنا</span></div>
+            <div style="margin-top:18px" class="reveal d5"><button class="btn btn-ghost" data-go="gifts">رجوع للهدايا →</button></div>
           </div>
         </div>
       </section>
@@ -421,16 +417,17 @@ footer{margin-top:26px; text-align:center; padding:18px; color:var(--muted); fon
           </div>
           <div>
             <div class="reasons-head">
-              <div class="overline reveal d1">أشياء أحبها فيكِ</div>
-              <h2 class="reveal d2">ليه أحبك؟</h2>
-              <p class="desc reveal d3">مو كلها، بس كم سبب يجي على بالي.</p>
-              <div class="info-bar reveal d4"><span>وصلتِ إلى</span><b id="reachedNum">001</b><span>من 101</span></div>
+              <div class="overline reveal d1">أشياء أتذكرها فيكِ</div>
+              <h2 class="reveal d2">ليه أنا بحبك؟</h2>
+              <p class="desc reveal d3">أحيانًا ما أعرف أشرحها، فكتبت لكِ مئة وسبب… والباقي تعرفه عيوني.</p>
+              <div class="info-bar reveal d4"><span>وصلتِ إلى</span><b id="reachedNum">001</b><span>من 101</span><span style="opacity:.6">· كل سبب مكتوب لكِ وحدكِ</span></div>
             </div>
             <div class="reasons-grid" id="reasonsGrid"></div>
-            <div class="final-card reveal">
-              <h3>بس والله</h3>
-              <p>لو أكتب مليون سبب، يبقى قليل. المهم إنك معي وأنا أحبك بكل حالاتك.</p>
-              <div style="margin-top:12px"><button class="btn btn-ghost" data-go="gifts">رجوع →</button></div>
+            <div class="final-card reveal" id="finalReasonsCard">
+              <div style="display:flex; gap:8px; align-items:center; margin-bottom:8px"><span style="font-size:18px">💌</span><h3 style="margin:0">بس والله</h3></div>
+              <p>لو أكتب مليون سبب، يبقى قليل. المهم إنك معي وأنا أحبك بكل حالاتك. كل هذي الأسباب كتبتها وأنا أتذكرك، وأتذكر ضحكتك، وصوتك، وريحتك، وكل شي فيك.</p>
+              <div style="margin-top:10px; display:flex; gap:6px; flex-wrap:wrap"><span style="background:#fbe5ea; border:1px solid var(--line); border-radius:999px; padding:4px 10px; font-size:11px">101 سبب وكلهم انتِ</span><span style="background:#fff8e6; border:1px solid #e9c46a; border-radius:999px; padding:4px 10px; font-size:11px">✦ من قلبي لقلبكِ</span></div>
+              <div style="margin-top:14px"><button class="btn btn-ghost" data-go="gifts">رجوع للهدايا →</button></div>
             </div>
           </div>
         </div>
@@ -652,116 +649,115 @@ $('#celebrateBtn')?.addEventListener('click', ()=>{ roseRain(90); playTone({freq
 
 (function(){ if(matchMedia('(pointer:fine)').matches){ $$('.gift-card').forEach(card=>{ card.addEventListener('pointermove', e=>{ const r=card.getBoundingClientRect(); const cx=r.left+r.width/2, cy=r.top+r.height/2; const dx=(e.clientX-cx)/r.width, dy=(e.clientY-cy)/r.height; card.style.transform=`perspective(800px) rotateY(${dx*9}deg) rotateX(${-dy*9}deg) translateY(-4px)`; }); card.addEventListener('pointerleave', ()=>{ card.style.transform='perspective(800px) rotateY(0) rotateX(0) translateY(0)'; }); }); } })();
 
-// REASONS - 101 human real reasons, no cringe repeat
 const reasonsTexts=[
-"تضحكيني حتى كي نكون مقلق",
-"تتفكري تفاصيل صغيرة أنا ننساهم",
-"قلبك بيض وما تعرفي تحقدي",
-"كي نسكت تفهمني بلا ما نهدر",
-"تخافي عليا من أبرد ريح",
-"تخليني نحب نكون إنسان خير",
-"معك نحس روحي في داري",
-"ضحكتك تنسيّني تعب النهار كامل",
-"صوتك كي تقوليلي عبود يطمني",
-"ما تخلينيش نرقد وانا مقلق منك",
-"تشجعيني حتى كي أنا ما نستاهلش",
-"تحبي دراري من ضرك",
-"ذكية بزاف بصح تديري روحك صغيرة باش نضحك",
-"حنينة حتى كي تكوني زعفانة",
-"تسامحي بالخف وما تخليش الزعل يطول",
-"تموتي على الورد وأنا نموت عليك كثر",
-"أي فوطو ليك تجي شابة لأنك فيها",
-"تضحكيني على نكتة بايخة تاعي",
-"تخافي على ماما كيما تخافي على ماماك",
-"جامي قارنتيني بواحد آخر",
-"تعطي بلا ما تستناي مقابل",
-"أول وحدة نحب نحكيلها كي تصرالي حاجة مليحة",
-"معك المستقبل ما يخوفش",
-"لأنك انتِ، وهادي تكفي",
-"كي تزعفي خدودك يحمارو ونحبك كثر",
-"شعرك كي يكون منكوش يعجبني كثر",
-"تعرفي تديري قهوة بنينة كيما انتِ",
-"كي تبكي نحب نضمك وما نطلقكش",
-"تغيري عليا وهادي تبينلي بلي تحبيني",
-"تحبي هيلو كيتي وأنا وليت نحبها على جالك",
-"كي تقوليلي نحبك بصوت ناعس",
-"تصبري عليا كي نكون ثقيل",
-"تعرفي تضحكيني بلا سبب",
-"عينيك كي تشوفيني كأنك تقوليلي توحشتك",
-"تحبي المفاجآت الصغيرة",
-"كي نكون مريض تولي طبيبتي",
-"تكتبيلي مساجات طوال كي نكون بعيد",
-"ما تخليش المسافة تبردنا",
-"تحفظي تاريخنا كامل",
-"تحبي تسمعي هدرتي حتى كي نعاود نفس الحكاية",
-"كي نضحك تضحكي معايا بلا ما تعرفي علاه",
-"تلبسي أي حاجة وتجي عليك تهبل",
-"ريحتك تبقى في حوايجي ونحبها",
-"كي تقوليلي ديّر بالك على روحك",
-"تعرفي وقتاش تسكتي ووقتاش تهدري",
-"تشوفي فيا حاجات مليحة أنا ما نشوفهاش",
-"تحبي تتصوري معايا حتى كي نكون مش مرتب",
-"كي تزعفي مني وبعد دقيقة تقوليلي توحشتك",
-"تحبي تديريلي مفاجآت صغيرة في الساك",
-"صبرك معايا ماشي عادي",
-"كي نكون معصب تعرفي كيفاش تهديني",
-"تحبي أولادنا قبل ما يجيو",
-"تضحكي كي نغني بصوت خايب",
-"تعرفي تفرحي بحاجة صغيرة نجيبها لك",
-"كي تقوليلي أنا معك نحس الدنيا ساهلة",
-"ما تحشميش تقوليلي نحبك قدام الناس",
-"تعرفي تطيبي ولو حاجة بسيطة بنينة",
-"كي تكوني فرحانة عينيك يلمعو",
-"تسمعي غنايانا وتعاوديها",
-"تحبي تحكيلي على نهارك كامل",
-"كي نغيب تحسبي الدقايق",
-"تعرفي تضمي مليح",
-"كي تقوليلي يا عمري قلبي يذوب",
-"تحبي تمشي معايا حتى بلا بلاصة",
-"تعرفي تضحكي على روحك",
-"كي نكون تعبان تقوليلي ارتاح أنا هنا",
-"تحبي الوردي على جالي ولا أنا غالط؟",
-"كي تشوفيني نضحك تفرحي كثر مني",
-"ما تنسايش تدعيلي",
-"تعرفي تخلي الدار دافية غير بوجودك",
-"كي تقوليلي غدوة خير نصدقك",
-"تحبي تسقسي عليا حتى كي نكون لاتي",
-"كي نغلط تعلميني بلا ما تجرحيني",
-"ضحكتك في الفيديو نعاودها 100 مرة",
-"تحبي الحلوى وأنا نحب حلوتي انتِ",
-"كي تكوني معايا الوقت يجري",
-"تعرفي تخليني نحس روحي راجل معك",
-"كي تقوليلي توحشتك نحسها صح من قلبك",
-"تحبي تخليلي نوت صغيرة في كتابي",
-"عينيك كي تغمضيهم وانتِ تضحكي",
-"كي نكون بعيد تحسي بيا",
-"تحبي تسمعي صوتي قبل ما ترقدي",
-"كي تقوليلي صباح الخير نهاري يبدا مليح",
-"تعرفي تفرحي كي نفرح أنا",
-"كي نزعف تخليني نضحك بالسيف",
-"تحبي تعانقيني بزاف",
-"كي تقوليلي خليك معايا نحس روحي مهم",
-"تعرفي تديري الجو شاب وين ما كنتي",
-"كي تشوفي قطة تقوليلي تشبهك",
-"تحبي تحكيلي أسرارك كامل",
-"كي نكون خايف تقوليلي أنا هنا ما تخافش",
-"تعرفي تضحكي حتى وانتِ تبكي",
-"كي تقوليلي نحبك بالجزائرية تجي بنينة كثر",
-"تحبي تلبسي خاتمي حتى وهو كبير عليك",
-"كي نكون معاك ما نحتاجش نهدر بزاف",
-"تعرفي تخليني نتوحشك وانا معك",
-"كي تقوليلي ربي يخليك ليا",
-"تحبي المستقبل معايا بلا خوف",
-"كي نشوفك ننسى علاه كنت مقلق",
-"لأنك سرور، وسرور هو فرحتي",
-"ولأن الحب معك ساهل، وما نحتاجش نسبب"
+"لأنك مزّة، وبدون أي مبالغة.",
+"لأنك حلوة بشكل يوجع القلب من شدة جماله.",
+"لأنك جميلة من جوّا ومن برّا.",
+"لأن عيونك تحكي قبل ما تنطقين.",
+"لأن ضحكتك تعدّل يومي كله بلحظة.",
+"لأن صوتك أهدى مكان بروحي.",
+"لأنك طيبة أكثر من اللازم.",
+"لأنك حنونة حتى وأنتِ معصّبة.",
+"لأنك تحسّين فيني قبل ما أتكلم.",
+"لأنك تفهمين صمتي بدون شرح.",
+"لأنك تسامحين بسرعة وما تحملين حقد.",
+"لأنك ما تتغيرين على أحد.",
+"لأن قلبك أبيض مثل الثلج.",
+"لأنك صادقة وما تعرفين التمثيل.",
+"لأنك تشيلين همّي قبل همّك.",
+"لأنك تدعمينني حتى وأنا ما أستاهل.",
+"لأنك تؤمنين فيني أكثر مني.",
+"لأنك تخافين عليّ من نسمة الهوا.",
+"لأنك تدعين لي وأنا ما أدري.",
+"لأنك تحبين عيالنا كيك وركان وإيلا بقلب الأم من الحين.",
+"لأنك اخترتيني من كل الناس.",
+"لأنك بقيتِ وقت الكل راح.",
+"لأنك ما خليتني أحس بالوحدة ولا مرة.",
+"لأنك بيتي ومكاني الآمن الوحيد.",
+"لأن حضنك يوقف الوقت وينسّيني التعب.",
+"لأن ريحتك ساكنة بثيابي وذاكرتي.",
+"لأن يديك أدفى شي بالدنيا.",
+"لأنك تعرفين متى تسكتين ومتى تضحكين.",
+"لأنك ذكية وتخبّينها بلطافة طفولية.",
+"لأنك قوية بشكل يخوّف ويثير إعجابي.",
+"لأنك ما تستسلمين بسهولة أبدًا.",
+"لأنك تكسرين الصعب بابتسامة منك.",
+"لأنك صبورة عليّ وعلى جنوني.",
+"لأنك ما تتذمرين من تعبي وظروفي.",
+"لأنك تحترمين أهلي كأنهم أهلك.",
+"لأنك كريمة بقلبك قبل كل شي.",
+"لأنك ما تحملين ضغينة لأحد.",
+"لأنك تصالحين بسرعة وتصفّين النية.",
+"لأنك تخافين على مشاعري بكل كلمة.",
+"لأن غيرتك حلوة وتكشف حبك الصادق.",
+"لأنك تدلعينني بطريقتك الخاصة الساحرة.",
+"لأنك تنادينني بأسماء ما ينطقها غيرك.",
+"لأن رسايلك أول شي يفتح يومي بنور.",
+"لأن صوتك بالصباح أفضل من القهوة والعالم.",
+"لأنك تسهرين معاي وأنا تعبان حتى لو فيك نوم.",
+"لأنك تتذكرين تفاصيل صغيرة أنا نفسي أنساها.",
+"لأنك تحفظين أكلاتي وأشيائي المفضلة.",
+"لأنك تعرفين مزاجي من حرف واحد أكتبه.",
+"لأنك ما تتركيني أزعل لحالي أبدًا.",
+"لأنك تصلحين يومك وتلغين زعلنا عشاني.",
+"لأنك تحبين الورد مثل ما أحب ضحكتك.",
+"لأن ذوقك حلو بكل شي تختارينه.",
+"لأنك تلبسين الوردي ويصير اللون مخلوق لك.",
+"لأن شعرك فوضى جميلة أعشقها.",
+"لأن خدودك تستاهل ألف قصيدة.",
+"لأن رموشك طويلة وجمالها يسحرني.",
+"لأن ملامحك بريئة ومريحة للعين والقلب.",
+"لأنك صغيرة بالعمر وكبيرة بالعقل والحكمة.",
+"لأنك ناضجة أكثر من سنينك.",
+"لأنك تصيرين طفلة لما تفرحين بهدية بسيطة.",
+"لأنك تكشرين بشكل يضحكني ويخليني أبوسك.",
+"لأنك سمّيتِ بنتنا الأولى كيك وصارت أحلى حلم.",
+"لأنك تنامين كأنك ملاك صغير هادي.",
+"لأنك تصحّين عصبية دقيقة وبعدين تصيرين أحلى وردة.",
+"لأنك تحبين ركان وتنتظرينه بشوق.",
+"لأنك اخترتِ اسم إيلا بقلب دافي.",
+"لأنك بتكونين أعظم وأحنّ أم بالدنيا كلها.",
+"لأنك تتخيلين بيتنا بالتفاصيل الصغيرة الحلوة.",
+"لأنك تخططين لمستقبلنا وأنا مطمن ومعك.",
+"لأنك تخليني أبغى أكون إنسان أفضل كل يوم.",
+"لأنك سبب إني أكمل وأسعى وأحارب.",
+"لأنك تخففين عني ضغط الدنيا بكلمة أنا معك.",
+"لأنك تحفزينني لما أضعف أو أتردد.",
+"لأنك فخورة فيني قدام الناس وبيني وبينك.",
+"لأنك ما تقارنّيني بأحد أبدًا بالكون.",
+"لأنك تقبلين عيوبي كلها وتحبينني رغمها.",
+"لأنك تعطين بدون ما تنتظرين مقابل.",
+"لأنك أول شخص أبغى أحكي له أي خبر حلو.",
+"لأنك أول شخص أدور عليه بيوم سيء أو متعب.",
+"لأنك تضحكين على نكاتي حتى السخيف منها.",
+"لأنك تتحمّلين مزاجي المتقلب بحب.",
+"لأنك ما تفتحين مشاكل بلا سبب.",
+"لأنك تنهين أي خلاف بحضن أو كلمة طيبة.",
+"لأنك تسوين سلام قبل ما ننام مهما صار.",
+"لأنك تحبين أهلك وتحبينني معهم بصدق.",
+"لأنك شجاعة بقراراتك وواثقة بنفسك.",
+"لأنك ما تخافين تبدأين من جديد معي.",
+"لأنك طموحة وما ترضين بالقليل بحياتنا.",
+"لأنك تحلمين كبير وأنا أحب أحلامك وأدعمها.",
+"لأنك تحبين الكائنات اللطيفة والضعفاء.",
+"لأنك تساعدين بدون ما أحد يطلب منك.",
+"لأنك ما تحبين أحد ينزعل بسببك.",
+"لأنك تكرهين الظلم وتقفين مع الحق.",
+"لأنك صادقة حتى لو كان الصدق صعب.",
+"لأنك نادرة وما تتكررين ولا تشبهين أحد.",
+"لأن الله اختارك لي وأنا محظوظ فيك لآخر العمر.",
+"لأن كل يوم معك يزيد حبي لك أضعاف.",
+"لأنك سرور وسروري وسعادتي كلها.",
+"لأنك زوجتي وحبيبتي وصديقتي وأم عيالي.",
+"لأنك بنتنا كيك وركان وإيلا وكل عائلتي الجميلة.",
+"لأنك كل الأسباب بالدنيا، وكل سبب لحاله يكفي."
 ];
 function renderReasons(){
   const grid=$('#reasonsGrid'); grid.innerHTML='';
   reasonsTexts.forEach((txt,i)=>{
-    const num=String(i+1).padStart(2,'0');
+    const num=String(i+1).padStart(3,'0');
     const div=document.createElement('div'); div.className='reason-card'; div.dataset.index=i+1;
-    div.innerHTML=`<div style="display:flex; gap:8px; align-items:center"><span class="rc-num">${num}</span><span style="color:var(--pink)">♥</span></div><div class="rc-text">${txt}</div>`;
+    div.innerHTML=`<div class="rc-top" style="display:flex; gap:8px; align-items:center"><span class="rc-num">${num}</span><span class="rc-heart" style="color:var(--pink)">♥</span></div><div class="rc-text">${txt}</div>`;
     grid.appendChild(div);
   });
 }
@@ -771,8 +767,8 @@ function initReasonsEntrance(){
   const cards=$$('.reason-card'), reachedNum=$('#reachedNum'); let maxVisible=1;
   cards.forEach(c=>c.classList.remove('in'));
   if(reasonsObserver) reasonsObserver.disconnect();
-  cards.forEach((card,i)=>{ setTimeout(()=>{ card.classList.add('in'); const n=i+1; if(n>maxVisible) maxVisible=n; if(reachedNum) reachedNum.textContent=String(maxVisible).padStart(2,'0'); }, i*72); });
-  const io=new IntersectionObserver(entries=>{ entries.forEach(ent=>{ if(ent.isIntersecting){ const idx=parseInt(ent.target.dataset.index,10); if(idx>maxVisible){ maxVisible=idx; if(reachedNum) reachedNum.textContent=String(maxVisible).padStart(2,'0'); } } }); }, {threshold:0.6});
+  cards.forEach((card,i)=>{ setTimeout(()=>{ card.classList.add('in'); const n=i+1; if(n>maxVisible) maxVisible=n; if(reachedNum) reachedNum.textContent=String(maxVisible).padStart(3,'0'); }, i*72); });
+  const io=new IntersectionObserver(entries=>{ entries.forEach(ent=>{ if(ent.isIntersecting){ const idx=parseInt(ent.target.dataset.index,10); if(idx>maxVisible){ maxVisible=idx; if(reachedNum) reachedNum.textContent=String(maxVisible).padStart(3,'0'); } } }); }, {threshold:0.6});
   cards.forEach(c=>io.observe(c)); reasonsObserver=io;
 }
 let polaroidTimer, polaroidIdx=0;
